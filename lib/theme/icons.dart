@@ -1,8 +1,10 @@
-enum AppIcons { list, pen, user }
+enum AppIcons { magnifyingGlass, list, pen, user }
 
 extension AppIconExtension on AppIcons {
   String get path {
     switch (this) {
+      case AppIcons.magnifyingGlass:
+        return 'assets/icons/magnifying_glass_solid.svg';
       case AppIcons.list:
         return 'assets/icons/rectangle_list_regular.svg';
       case AppIcons.pen:

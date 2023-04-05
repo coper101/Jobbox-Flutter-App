@@ -36,6 +36,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
         iconTheme: const IconThemeData()
             .copyWith(color: Theme.of(context).primaryColor),
@@ -59,17 +60,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(height: 24),
             MyTextField(
               title: 'Email',
+              placeholder: 'Enter email',
               controller: _emailTextController,
             ),
             const SizedBox(height: 24),
             MyTextField(
               title: 'New Password',
+              placeholder: 'Enter new password',
               isMasked: true,
               controller: _newPasswordTextController,
             ),
             const SizedBox(height: 24),
             MyTextField(
               title: 'Re-type Password',
+              placeholder: 'Enter password again',
               isMasked: true,
               isMaskedDisabled: true,
               controller: _reTypePasswordTextController,

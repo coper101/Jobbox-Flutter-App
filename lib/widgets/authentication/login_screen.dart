@@ -30,6 +30,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     final userModelData = Provider.of<UserModelData>(context);
     return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.background,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         systemOverlayStyle: SystemUiOverlayStyle.dark,
@@ -66,11 +67,13 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 100),
               MyTextField(
                 title: 'Email',
+                placeholder: 'Enter email',
                 controller: _emailTextController,
               ),
               const SizedBox(height: 28),
               MyTextField(
                 title: 'Password',
+                placeholder: 'Enter password',
                 isMasked: true,
                 controller: _passwordTextController,
               ),

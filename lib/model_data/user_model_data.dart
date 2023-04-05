@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/model/User.dart';
+
+import '../../model/User.dart';
 
 class UserModelData with ChangeNotifier {
   // -- States --
@@ -7,6 +8,10 @@ class UserModelData with ChangeNotifier {
 
   bool get isLoggedIn {
     return _loggedInUser != null;
+  }
+
+  String get greeting {
+    return 'Hi ${_loggedInUser?.firstName ?? ''} 👋🏻';
   }
 
   // -- Events --
