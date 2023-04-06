@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/model_data/user_model_data.dart';
+import 'package:provider/provider.dart';
 
 import '../../../theme/colors.dart';
 import '../../../theme/icons.dart';
@@ -21,7 +23,7 @@ class JobDetailSheet extends StatelessWidget {
     Navigator.pop(context);
     Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (context) => JobApplicationSheet1(),
+        builder: (context) => JobApplicationSheet1(job: job),
         fullscreenDialog: true,
       ),
     );
@@ -108,17 +110,19 @@ class JobDetailSheet extends StatelessWidget {
               ],
             ),
           ),
-          Container(
-            width: double.infinity,
-            height: 84,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Colors.white.withOpacity(0.1),
-                  Colors.white,
-                ],
+          IgnorePointer(
+            child: Container(
+              width: double.infinity,
+              height: 84,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.white.withOpacity(0.1),
+                    Colors.white,
+                  ],
+                ),
               ),
             ),
           ),
@@ -127,7 +131,7 @@ class JobDetailSheet extends StatelessWidget {
     );
   }
 
-  Widget _bottomBar(BuildContext context, ThemeData theme) {
+  Widget _bottomBar(BuildContext context, ThemeData theme, bool hasApplied) {
     final bottomInset = MediaQuery.of(context).padding.bottom;
     return Positioned(
       bottom: bottomInset,
@@ -137,8 +141,9 @@ class JobDetailSheet extends StatelessWidget {
         children: [
           Flexible(
             child: MyFilledButton(
-              title: 'Apply This Job',
+              title: hasApplied ? 'Applied' : 'Apply This Job',
               onTap: () => _onTapApply(context),
+              enabled: !hasApplied,
             ),
           ),
           const SizedBox(width: 12),
@@ -155,6 +160,8 @@ class JobDetailSheet extends StatelessWidget {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     final theme = Theme.of(context);
+    final userModelData = Provider.of<UserModelData>(context);
+
     return ClipRRect(
       borderRadius: const BorderRadius.only(
         topLeft: Radius.circular(28),
@@ -167,7 +174,12 @@ class JobDetailSheet extends StatelessWidget {
           children: [
             _content(context, theme),
             _topBar(),
-            _bottomBar(context, theme),
+            _bottomBar(
+                context,
+                theme,
+                userModelData.isJobApplied(
+                  job,
+                )),
           ],
         ),
       ),

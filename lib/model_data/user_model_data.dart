@@ -1,18 +1,43 @@
 import 'package:flutter/material.dart';
 
 import '../model/job.dart';
-import '../../model/User.dart';
+import '../model/file_document.dart';
+import '../model/User.dart';
 
 import '../model_data/data.dart';
 
 class UserModelData with ChangeNotifier {
   // -- States --
   User? _loggedInUser;
+
+  final List<FileDocument> _coverLetters = DocumentFiles.coverLetterFiles;
+  final List<FileDocument> _resumes = DocumentFiles.resumeFiles;
+
   final List<Job> _appliedJobs = [];
 
   // -- UI --
   bool get isLoggedIn {
     return _loggedInUser != null;
+  }
+
+  String get fullName {
+    return "${_loggedInUser?.firstName ?? ''} ${_loggedInUser?.lastName ?? ''}";
+  }
+
+  String get emailAddress {
+    return _loggedInUser?.email ?? '';
+  }
+
+  String get mobileNumber {
+    return "+${_loggedInUser?.mobileNumber ?? ''}";
+  }
+
+  List<FileDocument> get resumes {
+    return [..._resumes];
+  }
+
+  List<FileDocument> get coverLetters {
+    return [..._coverLetters];
   }
 
   List<Job> get appliedJobs {
@@ -21,6 +46,16 @@ class UserModelData with ChangeNotifier {
 
   String get greeting {
     return 'Hi ${_loggedInUser?.firstName ?? ''} 👋🏻';
+  }
+
+  FileDocument? get selectedResume {
+    return _resumes.firstWhere((file) =>
+        (file.category == DocumentCategories.resume) && file.isSelected);
+  }
+
+  FileDocument? get selectedCoverLetter {
+    return _coverLetters.firstWhere((file) =>
+        (file.category == DocumentCategories.coverLetter) && file.isSelected);
   }
 
   UserModelData() {
@@ -65,8 +100,19 @@ class UserModelData with ChangeNotifier {
     onDone();
   }
 
-  void applyJob(Job job) {
+  void applyJob(Job job, {VoidCallback? onDone}) {
+    final exists = _appliedJobs.any((j) => j.id == job.id);
+    if (exists) {
+      return;
+    }
     _appliedJobs.add(job);
     notifyListeners();
+
+    if (onDone != null) onDone();
+  }
+
+  bool isJobApplied(Job job) {
+    final exists = _appliedJobs.any((j) => j.id == job.id);
+    return exists;
   }
 }

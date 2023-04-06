@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/dynamic_text_field.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/item/file_item.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/text_field.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/model_data/user_model_data.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/item/group_header.dart';
+import 'package:provider/provider.dart';
 
 import '../../../theme/icons.dart';
+
 import '../../reusable_comps/visual/icon_image.dart';
+import '../../reusable_comps/input/dynamic_text_field.dart';
+import '../../../widgets/reusable_comps/item/file_item.dart';
+import '../../../widgets/reusable_comps/input/text_field.dart';
+
+import '../../../model/file_document.dart';
 
 class ProfileScreen extends StatefulWidget {
   // -- Props --
@@ -24,54 +29,40 @@ class _ProfileScreenState extends State<ProfileScreen> {
   bool _isContactInfoEditing = false;
   bool _isEmploymentInfoEditing = false;
 
+  late UserModelData userModelData;
+
   // -- Actions --
   void onTapEditContactInfo() {
-    print('onTapEditContactInfo');
     setState(() {
       _isContactInfoEditing = !_isContactInfoEditing;
     });
   }
 
   void onTapEditEmploymentInfo() {
-    print('onTapEditEmploymentInfo');
     setState(() {
       _isEmploymentInfoEditing = !_isEmploymentInfoEditing;
     });
   }
 
-  // -- UI --
-  Widget _header(BuildContext context, String title, VoidCallback onTapEdit) {
-    return Container(
-      width: double.infinity,
-      alignment: Alignment.topLeft,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
-          InkWell(
-            onTap: onTapEdit,
-            splashColor: Colors.orange,
-            child: Ink(
-              color: Colors.transparent,
-              width: 22,
-              height: 22,
-              child: MyIcon(
-                icon: AppIcons.pen,
-                length: 20,
-                color: Theme.of(context).colorScheme.onBackground,
-              ),
-            ),
-          )
-        ],
-      ),
-    );
+  // -- Lifecycle --
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      userModelData = Provider.of<UserModelData>(context, listen: false);
+      setState(() {
+        _fullNameTextController.text = userModelData.fullName;
+        _emailTextController.text = userModelData.emailAddress;
+        _mobileNumberTextController.text = userModelData.mobileNumber;
+      });
+    });
   }
 
+  // -- UI --
   @override
   Widget build(BuildContext context) {
+    final userModelData = Provider.of<UserModelData>(context);
+
     final mediaQuery = MediaQuery.of(context);
     final bottomInset = mediaQuery.padding.bottom;
 
@@ -135,7 +126,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ],
               ),
               const SizedBox(height: 28),
-              _header(context, 'Contact Info', onTapEditContactInfo),
+              GroupHeader(
+                title: 'Contact Info',
+                onTapEdit: onTapEditContactInfo,
+              ),
               const SizedBox(height: 12),
               DynamicTextField(
                 isEditing: _isContactInfoEditing,
@@ -166,25 +160,24 @@ class _ProfileScreenState extends State<ProfileScreen> {
               const SizedBox(height: 18),
               const Divider(),
               const SizedBox(height: 14),
-              _header(
-                context,
-                'Employment Information',
-                onTapEditEmploymentInfo,
+              GroupHeader(
+                title: 'Employment Information',
+                onTapEdit: onTapEditEmploymentInfo,
               ),
               const SizedBox(height: 12),
-              FileItem(
-                title: 'Resume',
-                fileName: 'My Resume.pdf',
-                uploadDate: DateTime(2020, 6, 11),
-                isEditing: _isEmploymentInfoEditing,
-              ),
+              if (userModelData.selectedResume != null)
+                FileItem(
+                  title: 'Resume',
+                  fileDocument: userModelData.selectedResume!,
+                  isEditing: _isEmploymentInfoEditing,
+                ),
               const SizedBox(height: 10),
-              FileItem(
-                title: 'Cover Letter',
-                fileName: 'My cover letter final.pdf',
-                uploadDate: DateTime(2020, 6, 11),
-                isEditing: _isEmploymentInfoEditing,
-              )
+              if (userModelData.selectedCoverLetter != null)
+                FileItem(
+                  title: 'Cover Letter',
+                  fileDocument: userModelData.selectedCoverLetter!,
+                  isEditing: _isEmploymentInfoEditing,
+                ),
             ],
           ),
         ),

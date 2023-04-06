@@ -78,19 +78,20 @@ class JobboxApp extends StatelessWidget {
           primarySwatch: Colors.orange,
           primaryColor: Colors.black,
           fontFamily: FontFamilies.poppins.name,
-          bottomNavigationBarTheme:
-              ThemeData.light().bottomNavigationBarTheme.copyWith(
-                    selectedLabelStyle: TextStyle(
-                      color: AppColors.brownDark.color.withOpacity(0.45),
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                    ),
-                    unselectedLabelStyle: TextStyle(
-                      color: AppColors.brownDark.color.withOpacity(0.35),
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+          bottomNavigationBarTheme: ThemeData.light()
+              .bottomNavigationBarTheme
+              .copyWith(
+                selectedLabelStyle: TextStyle(
+                  color: AppColors.brownDark.color.withOpacity(0.45),
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                ),
+                unselectedItemColor: AppColors.brownDark.color.withOpacity(0.4),
+                unselectedLabelStyle: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
         ),
         routes: {
           SignUpScreen.routeName: (c) => const SignUpScreen(),

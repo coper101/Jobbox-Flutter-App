@@ -8,7 +8,7 @@ extension AppColorsExtension on AppColors {
       case AppColors.orangeTint:
         return const Color(0xFFFFFBF8);
       case AppColors.orange:
-        return const Color(0xFFFEA658);
+        return const Color(0xFFEA9E5B);
       case AppColors.brownDark:
         return const Color(0xFF4B3C2F);
       case AppColors.blueTint:

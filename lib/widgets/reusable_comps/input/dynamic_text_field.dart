@@ -26,7 +26,7 @@ class DynamicTextField extends StatelessWidget {
             ),
             const SizedBox(height: 2),
             Text(
-              props.title!,
+              props.controller.text,
               textAlign: TextAlign.start,
               style: Theme.of(context)
                   .textTheme

@@ -42,6 +42,7 @@ class Country {
 
 // -- Job --
 class Job {
+  final String id;
   final AppLogos logo;
   final String companyName;
   final String positionTitle;
@@ -52,6 +53,7 @@ class Job {
   final Country country;
 
   Job({
+    required this.id,
     required this.logo,
     required this.companyName,
     required this.positionTitle,

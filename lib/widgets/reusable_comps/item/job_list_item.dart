@@ -55,8 +55,8 @@ class JobListItem extends StatelessWidget {
               boxShadow: [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.02),
-                  spreadRadius: 5,
-                  blurRadius: 1,
+                  spreadRadius: 2,
+                  blurRadius: 10,
                   offset: const Offset(0, 1),
                 ),
               ],
@@ -64,7 +64,7 @@ class JobListItem extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(bottom: 12, left: 12, right: 12),
+          padding: const EdgeInsets.only(bottom: 16, left: 16, right: 12),
           child: Material(
             color: Theme.of(context).colorScheme.surface,
             shape: RoundedRectangleBorder(

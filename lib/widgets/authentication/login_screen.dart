@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/model_data/data.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/model_data/user_model_data.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/theme/types.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/authentication/sign_up_screen.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/text_field.dart';
 import 'package:provider/provider.dart';
@@ -47,21 +48,23 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 24),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
+                children: [
                   Text(
                     'Job',
                     style: TextStyle(
-                      color: Colors.orange,
-                      fontSize: 42,
+                      color: Theme.of(context).colorScheme.secondary,
+                      fontSize: 40,
                       fontWeight: FontWeight.bold,
+                      fontFamily: FontFamilies.antourOne.name,
                     ),
                   ),
                   Text(
                     'box',
                     style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 42,
+                      color: Theme.of(context).colorScheme.onBackground,
+                      fontSize: 40,
                       fontWeight: FontWeight.bold,
+                      fontFamily: FontFamilies.antourOne.name,
                     ),
                   ),
                 ],

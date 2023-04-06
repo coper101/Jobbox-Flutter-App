@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/theme/types.dart';
 import 'package:provider/provider.dart';
 
 import '../reusable_comps/input/filled_button.dart';
@@ -50,7 +51,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
         title: Text(
           'Sign Up',
-          style: TextStyle(color: Theme.of(context).primaryColor),
+          style: TextStyle(
+            color: Theme.of(context).primaryColor,
+            fontFamily: FontFamilies.antourOne.name,
+          ),
         ),
         systemOverlayStyle: SystemUiOverlayStyle.dark,
         elevation: 0,

@@ -2,12 +2,13 @@ import '../theme/icons.dart';
 
 import '../../model/user.dart';
 import '../../model/job.dart';
+import '../model/file_document.dart';
 
 // -- Dummy User --
 class Users {
   static User user = User(
-    email: 'example@mail.com',
-    password: 'example',
+    email: 'Adrianseverin@gmail.com',
+    password: 'adrianseverin',
     firstName: 'Adrian',
     lastName: 'Severin',
     mobileNumber: '6594717281',
@@ -18,6 +19,7 @@ class Users {
 class Jobs {
   static List<Job> jobs = [
     Job(
+      id: 'j1',
       logo: AppLogos.slack,
       companyName: 'Slack',
       positionTitle: 'Senior Product Designer',
@@ -39,6 +41,7 @@ class Jobs {
       country: const Country(name: 'Singapore', direction: Directions.east),
     ),
     Job(
+      id: 'j2',
       logo: AppLogos.cryptoDotCom,
       companyName: 'Crypto.com',
       positionTitle: 'Front-End Developer',
@@ -60,6 +63,7 @@ class Jobs {
       country: const Country(name: 'Singapore', direction: Directions.central),
     ),
     Job(
+      id: 'j3',
       logo: AppLogos.amazon,
       companyName: 'Amazon',
       positionTitle: 'Product Owner',
@@ -81,6 +85,7 @@ class Jobs {
       country: const Country(name: 'Singapore', direction: Directions.west),
     ),
     Job(
+      id: 'j4',
       logo: AppLogos.asana,
       companyName: 'Asana',
       positionTitle: 'Product Owner',
@@ -103,6 +108,7 @@ class Jobs {
           const Country(name: 'Singapore', direction: Directions.northEast),
     ),
     Job(
+      id: 'j5',
       logo: AppLogos.google,
       companyName: 'Google',
       positionTitle: 'Senior Product Designer',
@@ -123,5 +129,30 @@ class Jobs {
       ),
       country: const Country(name: 'Singapore', direction: Directions.central),
     )
+  ];
+}
+
+// -- Dummy Files --
+class DocumentFiles {
+  static final resumeFiles = [
+    FileDocument(
+      fileName: 'My resume.pdf',
+      uploadDate: DateTime(2020, 6, 11),
+      category: DocumentCategories.resume,
+      isSelected: true,
+    ),
+  ];
+  static final coverLetterFiles = [
+    FileDocument(
+      fileName: 'My cover letter final.doc',
+      uploadDate: DateTime(2020, 6, 11),
+      category: DocumentCategories.coverLetter,
+      isSelected: true,
+    ),
+    FileDocument(
+        fileName: 'My cover letter.doc',
+        uploadDate: DateTime(2020, 6, 6),
+        category: DocumentCategories.coverLetter,
+        isSelected: false),
   ];
 }
