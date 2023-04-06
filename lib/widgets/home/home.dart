@@ -4,10 +4,10 @@ import 'package:provider/provider.dart';
 import '../../theme/icons.dart';
 
 import '../../widgets/authentication/login_screen.dart';
-import 'job_listing/job_listing_screen.dart';
-import 'applied_jobs/applied_jobs_screen.dart';
-import 'profile/profile_screen.dart';
-import '../reusable_comps/icon_image.dart';
+import './job_listing/job_listing_screen.dart';
+import './applied_jobs/applied_jobs_screen.dart';
+import './profile/profile_screen.dart';
+import '../reusable_comps/visual/icon_image.dart';
 
 import '../../model_data/user_model_data.dart';
 
@@ -62,7 +62,7 @@ class _HomeState extends State<Home> {
     return BottomNavigationBarItem(
       label: screen.title,
       icon: Padding(
-        padding: const EdgeInsets.only(bottom: 7),
+        padding: const EdgeInsets.only(bottom: 4),
         child: MyIcon(
           icon: icon,
           color: (_selectedTabScreen == screen)
@@ -70,7 +70,6 @@ class _HomeState extends State<Home> {
               : colorScheme.primary.withOpacity(0.35),
         ),
       ),
-      backgroundColor: Colors.red,
     );
   }
 
@@ -80,8 +79,10 @@ class _HomeState extends State<Home> {
 
     if (userModelData.isLoggedIn) {
       return Scaffold(
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: _activeTabScreen,
         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Theme.of(context).colorScheme.surface,
           selectedItemColor: Theme.of(context).colorScheme.secondary,
           items: [
             _navigationBarItem(TabScreens.jobListing, AppIcons.list),

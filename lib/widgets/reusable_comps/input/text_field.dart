@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-class MyTextField extends StatefulWidget {
-  // -- Props --
+class MyTextFieldProps {
   final String? title;
   final String placeholder;
   final bool isOutlined;
@@ -11,8 +10,7 @@ class MyTextField extends StatefulWidget {
   final bool enabled;
   final TextEditingController controller;
 
-  const MyTextField({
-    super.key,
+  const MyTextFieldProps({
     this.title,
     this.isOutlined = true,
     required this.placeholder,
@@ -22,6 +20,13 @@ class MyTextField extends StatefulWidget {
     this.enabled = false,
     required this.controller,
   });
+}
+
+class MyTextField extends StatefulWidget {
+  // -- Props --
+  final MyTextFieldProps props;
+
+  const MyTextField({super.key, required this.props});
 
   @override
   State<MyTextField> createState() => _MyTextFieldState();
@@ -44,49 +49,51 @@ class _MyTextFieldState extends State<MyTextField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        if (widget.title != null)
+        if (widget.props.title != null)
           Text(
-            widget.title!,
+            widget.props.title!,
             textAlign: TextAlign.start,
             style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           ),
         const SizedBox(height: 12),
         TextField(
-          enabled: widget.enabled,
+          enabled: widget.props.enabled,
           style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           decoration: InputDecoration(
             label: Padding(
               padding: const EdgeInsets.only(top: 3),
               child: Text(
-                widget.placeholder,
+                widget.props.placeholder,
               ),
             ),
-            fillColor: Colors.white.withOpacity(widget.enabled ? 1 : 0.3),
-            filled: !widget.isOutlined,
+            fillColor: Colors.white.withOpacity(widget.props.enabled ? 1 : 0.3),
+            filled: !widget.props.isOutlined,
             floatingLabelBehavior: FloatingLabelBehavior.never,
             isDense: true,
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-            suffixIcon: (widget.isMasked && !widget.isMaskedDisabled)
-                ? IconButton(
-                    onPressed: onTapVisibleIcon,
-                    icon: Icon(_isTextVisible
-                        ? Icons.visibility
-                        : Icons.visibility_off),
-                  )
-                : null,
-            prefixIcon: widget.prefixIcon,
+            suffixIcon:
+                (widget.props.isMasked && !widget.props.isMaskedDisabled)
+                    ? IconButton(
+                        onPressed: onTapVisibleIcon,
+                        icon: Icon(_isTextVisible
+                            ? Icons.visibility
+                            : Icons.visibility_off),
+                      )
+                    : null,
+            prefixIcon: widget.props.prefixIcon,
             prefixIconColor: Theme.of(context).colorScheme.onSurfaceVariant,
             prefixIconConstraints:
                 const BoxConstraints(minWidth: 42, minHeight: 38),
             border: OutlineInputBorder(
-              borderSide:
-                  widget.isOutlined ? const BorderSide() : BorderSide.none,
+              borderSide: widget.props.isOutlined
+                  ? const BorderSide()
+                  : BorderSide.none,
               borderRadius: BorderRadius.circular(10),
             ),
           ),
-          obscureText: widget.isMasked ? !_isTextVisible : false,
-          controller: widget.controller,
+          obscureText: widget.props.isMasked ? !_isTextVisible : false,
+          controller: widget.props.controller,
           onChanged: (value) {},
         ),
       ],

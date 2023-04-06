@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/model_data/data.dart';
 
+import '../model/job.dart';
 import '../../model/User.dart';
+
+import '../model_data/data.dart';
 
 class UserModelData with ChangeNotifier {
   // -- States --
   User? _loggedInUser;
+  final List<Job> _appliedJobs = [];
 
+  // -- UI --
   bool get isLoggedIn {
     return _loggedInUser != null;
   }
 
+  List<Job> get appliedJobs {
+    return [..._appliedJobs];
+  }
+
   String get greeting {
     return 'Hi ${_loggedInUser?.firstName ?? ''} 👋🏻';
+  }
+
+  UserModelData() {
+    applyJob(Jobs.jobs.first);
   }
 
   // -- Events --
@@ -51,5 +63,10 @@ class UserModelData with ChangeNotifier {
     );
     notifyListeners();
     onDone();
+  }
+
+  void applyJob(Job job) {
+    _appliedJobs.add(job);
+    notifyListeners();
   }
 }

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/colors.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/icons.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/filled_button.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/icon_box_button.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/logo_image.dart';
+
+import '../../../theme/colors.dart';
+import '../../../theme/icons.dart';
+
+import 'job_application/job_application_1_screen.dart';
+import '../../reusable_comps/input/filled_button.dart';
+import '../../reusable_comps/input/icon_box_button.dart';
+import '../../reusable_comps/visual/logo_image.dart';
 
 import '../../../model/job.dart';
 
@@ -14,7 +17,15 @@ class JobDetailSheet extends StatelessWidget {
   const JobDetailSheet({super.key, required this.job});
 
   // -- Actions --
-  void _onTapApply() {}
+  void _onTapApply(BuildContext context) {
+    Navigator.pop(context);
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => JobApplicationSheet1(),
+        fullscreenDialog: true,
+      ),
+    );
+  }
 
   void _onTapBookmark() {}
 
@@ -127,13 +138,13 @@ class JobDetailSheet extends StatelessWidget {
           Flexible(
             child: MyFilledButton(
               title: 'Apply This Job',
-              onTap: () => {},
+              onTap: () => _onTapApply(context),
             ),
           ),
           const SizedBox(width: 12),
           IconBoxButton(
             icon: AppIcons.bookmark,
-            onTap: () => {},
+            onTap: () => _onTapBookmark(),
           )
         ],
       ),

@@ -3,19 +3,27 @@ import 'package:intl/intl.dart';
 
 import '../../../theme/icons.dart';
 
-import '../../../widgets/home/job_listing/job_detail_sheet.dart';
-import '../../reusable_comps/icon_image.dart';
+import '../../home/job_listing/job_detail_sheet.dart';
+import '../visual/icon_image.dart';
 
 import '../../../model/job.dart';
 
 class JobListItem extends StatelessWidget {
   // -- Props --
   final Job job;
+  final bool enabled;
 
-  const JobListItem({super.key, required this.job});
+  const JobListItem({
+    super.key,
+    required this.job,
+    this.enabled = true,
+  });
 
   // -- Actions --
   void onTapItem(BuildContext context) {
+    if (!enabled) {
+      return;
+    }
     showModalBottomSheet(
       context: context,
       backgroundColor: Theme.of(context).colorScheme.surface,

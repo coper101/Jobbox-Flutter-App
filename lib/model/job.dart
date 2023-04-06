@@ -8,7 +8,7 @@ class Salary {
   final int minimum;
   final int maximum;
 
-  Salary({
+  const Salary({
     required this.type,
     required this.minimum,
     required this.maximum,
@@ -37,7 +37,7 @@ class Country {
   final String name;
   final Directions direction;
 
-  Country({required this.name, required this.direction});
+  const Country({required this.name, required this.direction});
 }
 
 // -- Job --

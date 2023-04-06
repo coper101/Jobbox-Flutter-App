@@ -1,5 +1,16 @@
 // -- Icons --
-enum AppIcons { magnifyingGlass, list, pen, user, sack, bookmark }
+enum AppIcons {
+  magnifyingGlass,
+  list,
+  pen,
+  user,
+  sack,
+  bookmark,
+  xmark,
+  chevronLeft,
+  plus,
+  file
+}
 
 extension AppIconExtension on AppIcons {
   String get path {
@@ -16,6 +27,14 @@ extension AppIconExtension on AppIcons {
         return 'assets/icons/sack_dollar_solid.svg';
       case AppIcons.bookmark:
         return 'assets/icons/bookmark_regular.svg';
+      case AppIcons.xmark:
+        return 'assets/icons/xmark_solid.svg';
+      case AppIcons.chevronLeft:
+        return 'assets/icons/chevron_left.svg';
+      case AppIcons.plus:
+        return 'assets/icons/plus_solid.svg';
+      case AppIcons.file:
+        return 'assets/icons/file_solid.svg';
     }
   }
 }
@@ -36,6 +55,18 @@ extension AppLogosExtension on AppLogos {
         return 'assets/logos/google_logo.svg';
       case AppLogos.slack:
         return 'assets/logos/slack_logo.svg';
+    }
+  }
+}
+
+// -- Images --
+enum AppImages { face }
+
+extension AppImagesExtension on AppImages {
+  String get path {
+    switch (this) {
+      case AppImages.face:
+        return 'assets/images/face.jpg';
     }
   }
 }

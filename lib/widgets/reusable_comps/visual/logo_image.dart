@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../theme/icons.dart';
+import '../../../theme/icons.dart';
 
 class MyLogo extends StatelessWidget {
   // -- Props --

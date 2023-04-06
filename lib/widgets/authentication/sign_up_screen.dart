@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
-import '../reusable_comps/filled_button.dart';
-import '../reusable_comps/text_field.dart';
-import '../reusable_comps/circle_image_button.dart';
+import '../reusable_comps/input/filled_button.dart';
+import '../reusable_comps/input/text_field.dart';
+import '../reusable_comps/input/circle_image_button.dart';
 import '../../model_data/user_model_data.dart';
 import '../../model_data/data.dart';
 
@@ -67,25 +67,29 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
             const SizedBox(height: 24),
             MyTextField(
-              title: 'Email',
-              placeholder: 'Enter email',
-              controller: _emailTextController,
+              props: MyTextFieldProps(
+                title: 'Email',
+                placeholder: 'Enter email',
+                controller: _emailTextController,
+              ),
             ),
             const SizedBox(height: 24),
             MyTextField(
+                props: MyTextFieldProps(
               title: 'New Password',
               placeholder: 'Enter new password',
               isMasked: true,
               controller: _newPasswordTextController,
-            ),
+            )),
             const SizedBox(height: 24),
             MyTextField(
+                props: MyTextFieldProps(
               title: 'Re-type Password',
               placeholder: 'Enter password again',
               isMasked: true,
               isMaskedDisabled: true,
               controller: _reTypePasswordTextController,
-            ),
+            )),
             const SizedBox(height: 54),
             MyFilledButton(
               title: 'Create Account',

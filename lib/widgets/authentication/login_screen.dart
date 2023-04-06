@@ -3,10 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/model_data/data.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/model_data/user_model_data.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/authentication/sign_up_screen.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/text_field.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/text_field.dart';
 import 'package:provider/provider.dart';
 
-import '../../widgets/reusable_comps/filled_button.dart';
+import '../reusable_comps/input/filled_button.dart';
 
 class LoginScreen extends StatefulWidget {
   // -- Props --
@@ -68,16 +68,20 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 100),
               MyTextField(
-                title: 'Email',
-                placeholder: 'Enter email',
-                controller: _emailTextController,
+                props: MyTextFieldProps(
+                  title: 'Email',
+                  placeholder: 'Enter email',
+                  controller: _emailTextController,
+                ),
               ),
               const SizedBox(height: 28),
               MyTextField(
-                title: 'Password',
-                placeholder: 'Enter password',
-                isMasked: true,
-                controller: _passwordTextController,
+                props: MyTextFieldProps(
+                  title: 'Password',
+                  placeholder: 'Enter password',
+                  isMasked: true,
+                  controller: _passwordTextController,
+                ),
               ),
               const SizedBox(height: 18),
               const Text(

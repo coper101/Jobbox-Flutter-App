@@ -68,11 +68,16 @@ flutter:
     - assets/icons/user_solid.svg
     - assets/icons/sack_dollar_solid.svg
     - assets/icons/bookmark_regular.svg
+    - assets/icons/xmark_solid.svg
+    - assets/icons/chevron_left.svg
+    - assets/icons/plus_solid.svg
+    - assets/icons/file_solid.svg
     - assets/logos/amazon_logo.svg
     - assets/logos/asana_logo.svg
     - assets/logos/crypto_dot_com_logo.svg
     - assets/logos/google_logo.svg
     - assets/logos/slack_logo.svg
+    - assets/images/face.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

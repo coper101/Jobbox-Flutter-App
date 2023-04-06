@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/colors.dart';
 import 'package:provider/provider.dart';
 
+import './theme/colors.dart';
 import './theme/types.dart';
 
 import './widgets/home/home.dart';
@@ -11,7 +11,10 @@ import './widgets/authentication/sign_up_screen.dart';
 import './model_data/user_model_data.dart';
 import './model_data/job_model_data.dart';
 
-void main() => runApp(const JobboxApp());
+void main() {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+  runApp(const JobboxApp());
+}
 
 class JobboxApp extends StatelessWidget {
   // -- Props --
@@ -20,7 +23,6 @@ class JobboxApp extends StatelessWidget {
   // -- UI --
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (c) => UserModelData()),
@@ -34,7 +36,7 @@ class JobboxApp extends StatelessWidget {
             secondary: AppColors.orange.color,
             onSecondary: Colors.white,
             background: AppColors.orangeTint.color,
-            onBackground: Colors.black,
+            onBackground: AppColors.brownDark.color,
             surface: Colors.white,
             onSurface: Colors.black,
             onSurfaceVariant: Colors.black.withOpacity(0.4),
@@ -61,6 +63,11 @@ class JobboxApp extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                   color: AppColors.brownDark.color,
                 ),
+                headlineLarge: TextStyle(
+                  fontFamily: FontFamilies.antourOne.name,
+                  fontSize: 23,
+                  color: AppColors.brownDark.color,
+                ),
                 bodyMedium: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
@@ -71,6 +78,19 @@ class JobboxApp extends StatelessWidget {
           primarySwatch: Colors.orange,
           primaryColor: Colors.black,
           fontFamily: FontFamilies.poppins.name,
+          bottomNavigationBarTheme:
+              ThemeData.light().bottomNavigationBarTheme.copyWith(
+                    selectedLabelStyle: TextStyle(
+                      color: AppColors.brownDark.color.withOpacity(0.45),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    unselectedLabelStyle: TextStyle(
+                      color: AppColors.brownDark.color.withOpacity(0.35),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
         ),
         routes: {
           SignUpScreen.routeName: (c) => const SignUpScreen(),
