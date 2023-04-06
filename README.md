@@ -1,16 +1,15 @@
-# jobbox_app_daryl_sofia_gialolo
+# Jobbox App
 
-A new Flutter project.
+Developed by Daryl Sofia Gialolo
 
-## Getting Started
+## Description
 
-This project is a starting point for a Flutter application.
+Search your dream job. Jobbox is a leading employment marketplace in Asia.
 
-A few resources to get you started if this is your first Flutter project:
+Features:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Apply Jobs
+- Manage Profile
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Screenshots
+
