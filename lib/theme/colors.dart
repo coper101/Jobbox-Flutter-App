@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 
-enum AppColors { background }
+enum AppColors { orangeTint, orange, brownDark, blueTint }
 
 extension AppColorsExtension on AppColors {
   Color get color {
     switch (this) {
-      case AppColors.background:
-        return const Color(0xFFFFFCFA);
+      case AppColors.orangeTint:
+        return const Color(0xFFFFFBF8);
+      case AppColors.orange:
+        return const Color(0xFFFEA658);
+      case AppColors.brownDark:
+        return const Color(0xFF4B3C2F);
+      case AppColors.blueTint:
+        return const Color(0xFFE9E9ED);
     }
   }
 }

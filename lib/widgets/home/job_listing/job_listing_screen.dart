@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/theme/types.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/widgets/home/job_listing/filter_tab_bar.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/home/job_listing/job_list_item.dart';
 import 'package:provider/provider.dart';
 
 import 'package:jobbox_app_daryl_sofia_gialolo/theme/icons.dart';
 
-import '../../reusable_comps/icon_asset.dart';
+import '../../reusable_comps/icon_image.dart';
 import '../../reusable_comps/text_field.dart';
 
 import '../../../model_data/job_model_data.dart';
@@ -37,6 +39,8 @@ class _JobListingScreenState extends State<JobListingScreen> {
           Text(
             message,
             style: TextStyle(
+              fontFamily: FontFamilies.poppins.name,
+              fontWeight: FontWeight.w500,
               fontSize: 16,
               color: Theme.of(context).primaryColor,
             ),
@@ -45,25 +49,26 @@ class _JobListingScreenState extends State<JobListingScreen> {
           Text(
             'Find The Best Job Here!',
             style: TextStyle(
-              fontSize: 26,
+              fontFamily: FontFamilies.antourOne.name,
+              fontSize: 23,
               color: Theme.of(context).primaryColor,
             ),
           ),
           const SizedBox(height: 16),
           MyTextField(
-            placeholder: 'Start searching jobs',
+            placeholder: 'Start searching for jobs',
             isOutlined: false,
             prefixIcon: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 11),
               child: MyIcon(
                 icon: AppIcons.magnifyingGlass,
                 length: 10,
-                color: Theme.of(context).colorScheme.primary.withOpacity(0.9),
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
               ),
             ),
             controller: _searchEditingController,
           ),
-          const SizedBox(height: 28),
+          const SizedBox(height: 24),
         ],
       ),
     );
@@ -79,12 +84,15 @@ class _JobListingScreenState extends State<JobListingScreen> {
       child: Column(
         children: [
           _topBar(context, userModelData.greeting),
+          const FilterTabBar(),
           Flexible(
-              child: ListView.builder(
-            itemBuilder: (_, index) =>
-                JobListItem(job: jobModelData.jobs[index]),
-            itemCount: jobModelData.jobs.length,
-          ))
+            child: ListView.builder(
+              padding: const EdgeInsets.symmetric(vertical: 0),
+              itemBuilder: (_, index) =>
+                  JobListItem(job: jobModelData.jobs[index]),
+              itemCount: jobModelData.jobs.length,
+            ),
+          ),
         ],
       ),
     );

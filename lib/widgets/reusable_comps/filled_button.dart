@@ -31,9 +31,9 @@ class MyFilledButton extends StatelessWidget {
           child: Text(
             title,
             style: TextStyle(
-              fontSize: 18,
+              fontSize: 17,
               color: Theme.of(context).colorScheme.onSecondary,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),

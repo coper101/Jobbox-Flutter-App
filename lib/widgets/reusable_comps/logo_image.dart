@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/icons.dart';
 
-class MyIcon extends StatelessWidget {
+import '../../theme/icons.dart';
+
+class MyLogo extends StatelessWidget {
   // -- Props --
-  final AppIcons icon;
+  final AppLogos logo;
   final double length;
   final Color? color;
 
-  const MyIcon({
+  const MyLogo({
     super.key,
-    required this.icon,
-    this.length = 22,
+    required this.logo,
+    this.length = 74,
     this.color,
   });
 
@@ -19,7 +20,7 @@ class MyIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SvgPicture.asset(
-      icon.path,
+      logo.path,
       width: length,
       height: length,
       color: color,

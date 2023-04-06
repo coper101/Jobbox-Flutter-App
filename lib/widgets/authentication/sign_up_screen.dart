@@ -6,6 +6,7 @@ import '../reusable_comps/filled_button.dart';
 import '../reusable_comps/text_field.dart';
 import '../reusable_comps/circle_image_button.dart';
 import '../../model_data/user_model_data.dart';
+import '../../model_data/data.dart';
 
 class SignUpScreen extends StatefulWidget {
   // -- Props --
@@ -19,12 +20,18 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   // -- States --
-  final _emailTextController = TextEditingController();
-  final _newPasswordTextController = TextEditingController();
-  final _reTypePasswordTextController = TextEditingController();
+  final _emailTextController = TextEditingController(text: Users.user.email);
+  final _newPasswordTextController =
+      TextEditingController(text: Users.user.password);
+  final _reTypePasswordTextController =
+      TextEditingController(text: Users.user.password);
 
   // -- Actions --
   void onTapLogin() {
+    Navigator.pop(context);
+  }
+
+  void _onRegistered() {
     Navigator.pop(context);
   }
 
@@ -38,8 +45,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
       resizeToAvoidBottomInset: false,
       backgroundColor: Theme.of(context).colorScheme.background,
       appBar: AppBar(
-        iconTheme: const IconThemeData()
-            .copyWith(color: Theme.of(context).primaryColor),
+        iconTheme: const IconThemeData().copyWith(
+          color: Theme.of(context).primaryColor,
+        ),
         title: Text(
           'Sign Up',
           style: TextStyle(color: Theme.of(context).primaryColor),
@@ -83,9 +91,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
               title: 'Create Account',
               onTap: () => {
                 userModelData.register(
-                    _emailTextController.text,
-                    _newPasswordTextController.text,
-                    _reTypePasswordTextController.text)
+                  _emailTextController.text,
+                  _newPasswordTextController.text,
+                  _reTypePasswordTextController.text,
+                  _onRegistered,
+                )
               },
             ),
             const SizedBox(height: 16),

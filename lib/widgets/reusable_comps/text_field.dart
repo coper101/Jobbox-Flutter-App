@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/icon_asset.dart';
 
 class MyTextField extends StatefulWidget {
   // -- Props --
@@ -9,6 +8,7 @@ class MyTextField extends StatefulWidget {
   final bool isMasked;
   final bool isMaskedDisabled;
   final Widget? prefixIcon;
+  final bool enabled;
   final TextEditingController controller;
 
   const MyTextField({
@@ -19,6 +19,7 @@ class MyTextField extends StatefulWidget {
     this.isMasked = false,
     this.isMaskedDisabled = false,
     this.prefixIcon,
+    this.enabled = false,
     required this.controller,
   });
 
@@ -51,10 +52,16 @@ class _MyTextFieldState extends State<MyTextField> {
           ),
         const SizedBox(height: 12),
         TextField(
-          style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          enabled: widget.enabled,
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
           decoration: InputDecoration(
-            label: Text(widget.placeholder),
-            fillColor: Colors.white,
+            label: Padding(
+              padding: const EdgeInsets.only(top: 3),
+              child: Text(
+                widget.placeholder,
+              ),
+            ),
+            fillColor: Colors.white.withOpacity(widget.enabled ? 1 : 0.3),
             filled: !widget.isOutlined,
             floatingLabelBehavior: FloatingLabelBehavior.never,
             isDense: true,
@@ -64,11 +71,12 @@ class _MyTextFieldState extends State<MyTextField> {
                 ? IconButton(
                     onPressed: onTapVisibleIcon,
                     icon: Icon(_isTextVisible
-                        ? Icons.visibility_off
-                        : Icons.visibility),
+                        ? Icons.visibility
+                        : Icons.visibility_off),
                   )
                 : null,
             prefixIcon: widget.prefixIcon,
+            prefixIconColor: Theme.of(context).colorScheme.onSurfaceVariant,
             prefixIconConstraints:
                 const BoxConstraints(minWidth: 42, minHeight: 38),
             border: OutlineInputBorder(

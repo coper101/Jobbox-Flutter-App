@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/model_data/data.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/model_data/user_model_data.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/authentication/sign_up_screen.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/text_field.dart';
@@ -17,8 +18,9 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   // -- State --
-  final _emailTextController = TextEditingController();
-  final _passwordTextController = TextEditingController();
+  final _emailTextController = TextEditingController(text: Users.user.email);
+  final _passwordTextController =
+      TextEditingController(text: Users.user.password);
 
   // -- Actions --
   void onTapSignUp(BuildContext context) {
@@ -81,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
               const Text(
                 'Forgot Password?',
                 textAlign: TextAlign.start,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
               ),
               const SizedBox(height: 36),
               MyFilledButton(
@@ -99,7 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   const Text(
                     "Don't have an account?",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                   TextButton(
                     onPressed: () => onTapSignUp(context),
@@ -107,7 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       'Sign Up',
                       style: TextStyle(
                           fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w600,
                           color: Theme.of(context).colorScheme.secondary),
                     ),
                   )

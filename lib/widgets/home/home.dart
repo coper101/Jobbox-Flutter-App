@@ -7,7 +7,7 @@ import '../../widgets/authentication/login_screen.dart';
 import 'job_listing/job_listing_screen.dart';
 import 'applied_jobs/applied_jobs_screen.dart';
 import 'profile/profile_screen.dart';
-import '../../widgets/reusable_comps/icon_asset.dart';
+import '../reusable_comps/icon_image.dart';
 
 import '../../model_data/user_model_data.dart';
 

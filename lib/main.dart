@@ -30,15 +30,47 @@ class JobboxApp extends StatelessWidget {
         home: const Home(),
         theme: ThemeData(
           colorScheme: ColorScheme.fromSwatch().copyWith(
-            primary: Colors.black,
-            secondary: Colors.orange,
+            primary: AppColors.brownDark.color,
+            secondary: AppColors.orange.color,
             onSecondary: Colors.white,
-            background: AppColors.background.color,
+            background: AppColors.orangeTint.color,
+            onBackground: Colors.black,
             surface: Colors.white,
+            onSurface: Colors.black,
+            onSurfaceVariant: Colors.black.withOpacity(0.4),
           ),
+          textTheme: ThemeData.light().textTheme.copyWith(
+                labelSmall: TextStyle(
+                  color: AppColors.orange.color,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 1.5,
+                ),
+                labelMedium: TextStyle(
+                  color: AppColors.brownDark.color.withOpacity(0.45),
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                ),
+                titleMedium: TextStyle(
+                  color: AppColors.brownDark.color,
+                  fontSize: 21,
+                  fontWeight: FontWeight.w600,
+                ),
+                headlineMedium: TextStyle(
+                  fontSize: 17,
+                  fontWeight: FontWeight.w600,
+                  color: AppColors.brownDark.color,
+                ),
+                bodyMedium: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  height: 1.7,
+                  color: AppColors.brownDark.color,
+                ),
+              ),
           primarySwatch: Colors.orange,
           primaryColor: Colors.black,
-          fontFamily: FontFamilies.raleway.name,
+          fontFamily: FontFamilies.poppins.name,
         ),
         routes: {
           SignUpScreen.routeName: (c) => const SignUpScreen(),
