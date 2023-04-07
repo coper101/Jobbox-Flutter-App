@@ -171,7 +171,6 @@ class JobDetailSheet extends StatelessWidget {
       ),
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        height: height * 1,
         child: Stack(
           children: [
             _content(context, theme),

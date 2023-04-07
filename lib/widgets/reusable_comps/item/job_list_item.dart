@@ -21,12 +21,15 @@ class JobListItem extends StatelessWidget {
 
   // -- Actions --
   void onTapItem(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     if (!enabled) {
       return;
     }
     showModalBottomSheet(
+      isScrollControlled: true,
       context: context,
       backgroundColor: Theme.of(context).colorScheme.surface,
+      constraints: BoxConstraints.tight(Size(size.width, size.height * 0.7)),
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(28),
