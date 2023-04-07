@@ -15,7 +15,7 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
 
   const TopBar({
     super.key,
-    this.height = 36,
+    this.height = 42,
     this.leadingIconWidth = 48,
     required this.dimissIcon,
     this.centerTitle,
@@ -44,7 +44,7 @@ class TopBar extends StatelessWidget with PreferredSizeWidget {
       leading: Container(
         width: leadingIconWidth,
         padding: const EdgeInsets.symmetric(horizontal: 2),
-        margin: const EdgeInsets.only(left: 8, bottom: 8),
+        margin: const EdgeInsets.only(left: 8, bottom: 8, top: 8),
         child: Material(
           child: InkWell(
             splashColor: Colors.transparent,
