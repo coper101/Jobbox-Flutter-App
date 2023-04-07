@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/model/file_document.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/model_data/data.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/model_data/user_model_data.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/item/file_item.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/theme/dimensions.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/file_item_button.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/navigation/top_bar.dart';
 import 'package:provider/provider.dart';
@@ -94,6 +93,7 @@ class JobApplicationSheet1 extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Container(
         padding: const EdgeInsets.symmetric(horizontal: 18),
+        margin: const EdgeInsets.only(bottom: Dimensions.bottomPadding),
         alignment: AlignmentDirectional.bottomCenter,
         width: double.infinity,
         height: 58,
@@ -109,7 +109,8 @@ class JobApplicationSheet1 extends StatelessWidget {
       body: Container(
         color: Theme.of(context).colorScheme.background,
         padding: const EdgeInsets.only(left: 18, right: 18),
-        margin: EdgeInsets.only(bottom: 58 + bottomInset),
+        margin: EdgeInsets.only(
+            bottom: 58 + bottomInset + Dimensions.bottomPadding),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

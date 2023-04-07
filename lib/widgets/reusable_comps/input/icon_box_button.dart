@@ -18,6 +18,8 @@ class IconBoxButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      splashColor: Colors.transparent,
+      highlightColor: Theme.of(context).colorScheme.secondary.withOpacity(0.1),
       borderRadius: BorderRadius.circular(10),
       onTap: onTap,
       child: Container(

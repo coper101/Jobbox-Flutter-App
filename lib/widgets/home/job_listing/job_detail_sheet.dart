@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/model_data/user_model_data.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/theme/dimensions.dart';
 import 'package:provider/provider.dart';
 
 import '../../../theme/colors.dart';
@@ -71,7 +72,7 @@ class JobDetailSheet extends StatelessWidget {
     final bottomInset = MediaQuery.of(context).padding.bottom + 52;
 
     return Padding(
-      padding: EdgeInsets.only(bottom: bottomInset),
+      padding: EdgeInsets.only(bottom: bottomInset + Dimensions.bottomPadding),
       child: Stack(
         alignment: AlignmentDirectional.bottomCenter,
         children: [
@@ -134,7 +135,7 @@ class JobDetailSheet extends StatelessWidget {
   Widget _bottomBar(BuildContext context, ThemeData theme, bool hasApplied) {
     final bottomInset = MediaQuery.of(context).padding.bottom;
     return Positioned(
-      bottom: bottomInset,
+      bottom: bottomInset + Dimensions.bottomPadding,
       left: 0,
       right: 0,
       child: Row(

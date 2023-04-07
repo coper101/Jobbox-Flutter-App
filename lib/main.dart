@@ -12,7 +12,10 @@ import './model_data/user_model_data.dart';
 import './model_data/job_model_data.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle.dark.copyWith(statusBarColor: Colors.transparent),
+  );
+
   runApp(const JobboxApp());
 }
 
@@ -29,7 +32,9 @@ class JobboxApp extends StatelessWidget {
         ChangeNotifierProvider(create: (c) => JobModelData()),
       ],
       child: MaterialApp(
+        title: 'Jobbox',
         home: const Home(),
+        themeMode: ThemeMode.light,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSwatch().copyWith(
             primary: AppColors.brownDark.color,

@@ -119,9 +119,12 @@ class JobListItem extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(width: 12),
-                        Text(
-                          job.location,
-                          style: Theme.of(context).textTheme.labelMedium,
+                        Flexible(
+                          child: Text(
+                            job.location,
+                            overflow: TextOverflow.ellipsis,
+                            style: Theme.of(context).textTheme.labelMedium,
+                          ),
                         ),
                       ],
                     ),

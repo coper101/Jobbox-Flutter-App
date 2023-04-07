@@ -11,6 +11,11 @@ Features:
 - Apply Jobs
 - Manage Profile
 
+## Project Architecture
+
+## Design
+Figma: https://www.figma.com/file/pEo43VAlgP6Duu99CC9fID/Jobbox?node-id=0%3A1&t=tJiIemFLqnD2iWfH-1
+
 ## Screenshots
 
 ## User Guide
