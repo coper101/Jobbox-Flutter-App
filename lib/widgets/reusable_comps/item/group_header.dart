@@ -26,10 +26,7 @@ class GroupHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            title,
-            style: Theme.of(context).textTheme.titleMedium,
-          ),
+          Text(title, style: Theme.of(context).textTheme.titleMedium),
           Material(
             child: InkWell(
               borderRadius: BorderRadius.circular(10),

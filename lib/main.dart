@@ -71,6 +71,7 @@ class JobboxApp extends StatelessWidget {
                   color: AppColors.brownDark.color,
                   fontSize: 21,
                   fontWeight: FontWeight.w600,
+                  letterSpacing: -0.5,
                 ),
                 headlineMedium: TextStyle(
                   fontSize: 17,
@@ -81,6 +82,7 @@ class JobboxApp extends StatelessWidget {
                   fontFamily: FontFamilies.antourOne.name,
                   fontSize: 23,
                   color: AppColors.brownDark.color,
+                  letterSpacing: -1.5,
                 ),
                 bodyMedium: TextStyle(
                   fontSize: 16,
