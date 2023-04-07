@@ -176,7 +176,7 @@ class _JobApplicationSheet2State extends State<JobApplicationSheet2> {
                           controller: _schoolNameTextController,
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: Dimensions.textFieldSpaceBetween),
                       MyTextField(
                         props: MyTextFieldProps(
                           title: 'Course of study',
@@ -184,7 +184,7 @@ class _JobApplicationSheet2State extends State<JobApplicationSheet2> {
                           controller: _courseOfStudyTextController,
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: Dimensions.textFieldSpaceBetween),
                       MyTextField(
                         props: MyTextFieldProps(
                           title: 'Year graduated',
@@ -192,7 +192,7 @@ class _JobApplicationSheet2State extends State<JobApplicationSheet2> {
                           controller: _yearGraduatedTextController,
                         ),
                       ),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: Dimensions.textFieldSpaceBetween),
                     ],
                   )),
               const SizedBox(height: 16),

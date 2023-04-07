@@ -1,8 +1,10 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../theme/colors.dart';
 import '../../../theme/icons.dart';
+import '../../../theme/dimensions.dart';
 
 import '../../../widgets/reusable_comps/navigation/top_bar.dart';
 
@@ -47,72 +49,46 @@ class _SignUpScreenState extends State<SignUpScreen> {
   // -- UI --
   Widget _message(BuildContext context) {
     final bottomInset = MediaQuery.of(context).padding.bottom;
-
     return Positioned(
       right: 0,
       left: 0,
       bottom: bottomInset,
       child: Container(
-        height: 64,
+        height: 54,
+        alignment: AlignmentDirectional.center,
         color: Theme.of(context).colorScheme.background,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text(
-              "By creating an account, you agree to Koko's",
-              style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                    color: AppColors.brownDark.color,
-                    fontSize: 12,
-                    fontWeight: FontWeight.normal,
-                    letterSpacing: 0,
-                  ),
-            ),
-            Container(
-              height: 38,
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Terms of Use',
-                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                            fontSize: 12,
-                            fontWeight: FontWeight.normal,
-                          ),
-                    ),
-                  ),
-                  Text(
-                    'and',
-                    style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                          color: AppColors.brownDark.color,
-                          fontSize: 12,
-                          fontWeight: FontWeight.normal,
-                          letterSpacing: 0,
-                        ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      'Privacy Policy',
-                      style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                            fontSize: 12,
-                            fontWeight: FontWeight.normal,
-                          ),
-                    ),
-                  ),
-                  const Text(
-                    '.',
-                    style: TextStyle(
+        child: RichText(
+          textAlign: TextAlign.center,
+          text: TextSpan(
+            style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                  color: AppColors.brownDark.color,
+                  fontSize: 12,
+                  fontWeight: FontWeight.normal,
+                  letterSpacing: 0,
+                ),
+            children: [
+              const TextSpan(
+                  text: "By creating an account, you agree to Koko's\n"),
+              TextSpan(
+                text: 'Terms of Use ',
+                style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                      fontWeight: FontWeight.normal,
                       fontSize: 12,
-                      fontWeight: FontWeight.w600,
                     ),
-                  ),
-                ],
+                recognizer: TapGestureRecognizer()..onTap = () {},
               ),
-            )
-          ],
+              const TextSpan(text: 'and'),
+              TextSpan(
+                text: ' Privacy Policy',
+                style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 12,
+                    ),
+                recognizer: TapGestureRecognizer()..onTap = () {},
+              ),
+              const TextSpan(text: '.'),
+            ],
+          ),
         ),
       ),
     );
@@ -141,7 +117,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 title: 'Add Photo',
                 onTap: () {},
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: Dimensions.textFieldSpaceBetween),
               MyTextField(
                 props: MyTextFieldProps(
                   title: 'Email',
@@ -149,7 +125,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   controller: _emailTextController,
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: Dimensions.textFieldSpaceBetween),
               MyTextField(
                   props: MyTextFieldProps(
                 title: 'New Password',
@@ -157,7 +133,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 isMasked: true,
                 controller: _newPasswordTextController,
               )),
-              const SizedBox(height: 20),
+              const SizedBox(height: Dimensions.textFieldSpaceBetween),
               MyTextField(
                   props: MyTextFieldProps(
                 title: 'Re-type Password',

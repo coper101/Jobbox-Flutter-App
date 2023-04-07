@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter/services.dart';
 
 import '../../../theme/types.dart';
+import '../../../theme/dimensions.dart';
 
 import '../../../widgets/screens/authentication/sign_up_screen.dart';
 import '../../../widgets/reusable_comps/input/text_field.dart';
@@ -42,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 18),
           child: Column(
             children: [
-              const SizedBox(height: 24),
+              const SizedBox(height: 74),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -74,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   controller: _emailTextController,
                 ),
               ),
-              const SizedBox(height: 28),
+              const SizedBox(height: Dimensions.textFieldSpaceBetween),
               MyTextField(
                 props: MyTextFieldProps(
                   title: 'Password',
