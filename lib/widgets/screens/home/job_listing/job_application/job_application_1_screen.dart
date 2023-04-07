@@ -69,10 +69,21 @@ class JobApplicationSheet1 extends StatelessWidget {
             ),
             Material(
               child: InkWell(
-                child: MyIcon(
-                  icon: AppIcons.plus,
-                  length: 26,
-                  color: Theme.of(context).colorScheme.onBackground,
+                borderRadius: BorderRadius.circular(15),
+                splashColor: Colors.transparent,
+                highlightColor:
+                    Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                onTap: () => {},
+                child: Ink(
+                  width: 42,
+                  height: 42,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
+                  child: MyIcon(
+                    icon: AppIcons.plus,
+                    length: 42,
+                    color: Theme.of(context).colorScheme.onBackground,
+                  ),
                 ),
               ),
             ),
