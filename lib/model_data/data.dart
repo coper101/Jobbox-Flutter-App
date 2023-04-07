@@ -13,6 +13,11 @@ class Users {
     firstName: 'Adrian',
     lastName: 'Severin',
     mobileNumber: '6594717281',
+    education: Education(
+      school: 'Horizon Education University',
+      course: 'Data Analytics',
+      graduationYear: 2012,
+    ),
   );
 }
 

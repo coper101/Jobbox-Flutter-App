@@ -14,6 +14,7 @@ import '../../../../reusable_comps/visual/step_indicator.dart';
 
 import '../../../../../model/job.dart';
 import '../../../../../model_data/job_model_data.dart';
+import '../../../../../model_data/user_model_data.dart';
 
 class JobApplicationSheet2 extends StatefulWidget {
   // -- Props --
@@ -35,6 +36,24 @@ class _JobApplicationSheet2State extends State<JobApplicationSheet2> {
   final _yearGraduatedTextController = TextEditingController();
 
   final _additionalSkillsTextController = TextEditingController();
+
+  late UserModelData userModelData;
+
+  // -- Lifecycle --
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      userModelData = Provider.of<UserModelData>(context, listen: false);
+      final education = userModelData.education;
+      setState(() {
+        _schoolNameTextController.text = education?.school ?? '';
+        _courseOfStudyTextController.text = education?.course ?? '';
+        _yearGraduatedTextController.text =
+            '${education?.graduationYear ?? ''}';
+      });
+    });
+  }
 
   // -- Actions --
   void _onTapBack(BuildContext context) {

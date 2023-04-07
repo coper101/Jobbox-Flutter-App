@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../model/job.dart';
 import '../model/file_document.dart';
-import '../model/User.dart';
+import '../../model/user.dart';
 
 import '../model_data/data.dart';
 
@@ -30,6 +30,10 @@ class UserModelData with ChangeNotifier {
 
   String get mobileNumber {
     return "+${_loggedInUser?.mobileNumber ?? ''}";
+  }
+
+  Education? get education {
+    return _loggedInUser?.education;
   }
 
   List<FileDocument> get resumes {
@@ -73,6 +77,7 @@ class UserModelData with ChangeNotifier {
       firstName: Users.user.firstName,
       lastName: Users.user.lastName,
       mobileNumber: Users.user.mobileNumber,
+      education: Users.user.education,
     );
     notifyListeners();
   }
@@ -95,6 +100,7 @@ class UserModelData with ChangeNotifier {
       firstName: Users.user.firstName,
       lastName: Users.user.lastName,
       mobileNumber: Users.user.mobileNumber,
+      education: Users.user.education,
     );
     notifyListeners();
     onDone();
