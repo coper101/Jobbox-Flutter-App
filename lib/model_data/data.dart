@@ -1,3 +1,5 @@
+import 'package:jobbox_app_daryl_sofia_gialolo/model/skill.dart';
+
 import '../theme/icons.dart';
 
 import '../../model/user.dart';
@@ -88,7 +90,7 @@ class Jobs {
       id: 'j4',
       logo: AppLogos.asana,
       companyName: 'Asana',
-      positionTitle: 'Product Owner',
+      positionTitle: 'Business Analyst',
       description:
           "We're looking for a talented Lead Product Designer to join our rapidly growing design team to create intuitive and effective experiences for our customers as...",
       requirements: [
@@ -154,5 +156,12 @@ class DocumentFiles {
         uploadDate: DateTime(2020, 6, 6),
         category: DocumentCategories.coverLetter,
         isSelected: false),
+  ];
+}
+
+// -- Dummy Skills --
+class Skills {
+  static const skills = [
+    Skill(id: 's1', name: 'Figma'),
   ];
 }

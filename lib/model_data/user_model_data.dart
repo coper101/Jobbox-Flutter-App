@@ -58,9 +58,9 @@ class UserModelData with ChangeNotifier {
         (file.category == DocumentCategories.coverLetter) && file.isSelected);
   }
 
-  UserModelData() {
-    applyJob(Jobs.jobs.first);
-  }
+  // UserModelData() {
+  //   applyJob(Jobs.jobs.first);
+  // }
 
   // -- Events --
   void login(String email, String password) {

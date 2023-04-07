@@ -4,6 +4,7 @@ import 'package:jobbox_app_daryl_sofia_gialolo/model_data/data.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/model_data/user_model_data.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/item/file_item.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/file_item_button.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/navigation/top_bar.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../theme/icons.dart';
@@ -86,67 +87,58 @@ class JobApplicationSheet1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final topInset = MediaQuery.of(context).padding.top;
+    final bottomInset = MediaQuery.of(context).padding.bottom;
     final userModelData = Provider.of<UserModelData>(context);
 
-    return Container(
-      color: Theme.of(context).colorScheme.background,
-      padding: EdgeInsets.only(top: topInset, left: 18, right: 18),
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Material(
-                    child: InkWell(
-                      onTap: () => _onTapClose(context),
-                      child: MyIcon(
-                        icon: AppIcons.xmark,
-                        color: Theme.of(context).primaryColor,
-                        length: 26,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    'Apply to ${job.companyName}',
-                    style: Theme.of(context).textTheme.headlineLarge,
-                  ),
-                  const SizedBox(height: 18),
-                  const StepIndicator(step: JobApplicationSteps.uploadDocs),
-                  const SizedBox(height: 18),
-                  _documentItemGroup(
-                    context,
-                    DocumentCategories.resume,
-                    userModelData.resumes,
-                    _onTapAddResumeFile,
-                  ),
-                  const SizedBox(height: 18),
-                  _documentItemGroup(
-                    context,
-                    DocumentCategories.coverLetter,
-                    userModelData.coverLetters,
-                    _onTapAddCoverLetterFile,
-                  ),
-                  const SizedBox(height: 18),
-                ],
+    return Scaffold(
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 18),
+        alignment: AlignmentDirectional.bottomCenter,
+        width: double.infinity,
+        height: 58,
+        child: MyFilledButton(
+          title: 'Proceed',
+          onTap: () => _onTapProceed(context),
+        ),
+      ),
+      appBar: TopBar(
+        dimissIcon: AppIcons.xmark,
+        onTapBack: () => _onTapClose(context),
+      ),
+      body: Container(
+        color: Theme.of(context).colorScheme.background,
+        padding: const EdgeInsets.only(left: 18, right: 18),
+        margin: EdgeInsets.only(bottom: 58 + bottomInset),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 8),
+              Text(
+                'Apply to ${job.companyName}',
+                style: Theme.of(context).textTheme.headlineLarge,
               ),
-            ),
-          ),
-          Positioned(
-            bottom: 50,
-            left: 0,
-            right: 0,
-            child: Material(
-              child: MyFilledButton(
-                title: 'Proceed',
-                onTap: () => _onTapProceed(context),
+              const SizedBox(height: 18),
+              const StepIndicator(step: JobApplicationSteps.uploadDocs),
+              const SizedBox(height: 18),
+              _documentItemGroup(
+                context,
+                DocumentCategories.resume,
+                userModelData.resumes,
+                _onTapAddResumeFile,
               ),
-            ),
+              const SizedBox(height: 18),
+              _documentItemGroup(
+                context,
+                DocumentCategories.coverLetter,
+                userModelData.coverLetters,
+                _onTapAddCoverLetterFile,
+              ),
+              const SizedBox(height: 200),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

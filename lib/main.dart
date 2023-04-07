@@ -53,6 +53,11 @@ class JobboxApp extends StatelessWidget {
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
                 ),
+                labelLarge: TextStyle(
+                  fontSize: 17,
+                  color: AppColors.orange.color,
+                  fontWeight: FontWeight.w600,
+                ),
                 titleMedium: TextStyle(
                   color: AppColors.brownDark.color,
                   fontSize: 21,
@@ -76,7 +81,7 @@ class JobboxApp extends StatelessWidget {
                 ),
               ),
           primarySwatch: Colors.orange,
-          primaryColor: Colors.black,
+          primaryColor: AppColors.brownDark.color,
           fontFamily: FontFamilies.poppins.name,
           bottomNavigationBarTheme: ThemeData.light()
               .bottomNavigationBarTheme

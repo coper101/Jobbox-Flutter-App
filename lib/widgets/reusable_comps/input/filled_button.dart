@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/theme/colors.dart';
 
 class MyFilledButton extends StatelessWidget {
   // -- Props --
@@ -39,14 +40,9 @@ class MyFilledButton extends StatelessWidget {
         child: Center(
           child: Text(
             title,
-            style: TextStyle(
-              fontSize: 17,
-              color: Theme.of(context)
-                  .colorScheme
-                  .onSecondary
-                  .withOpacity(enabled ? 1 : 0.8),
-              fontWeight: FontWeight.w600,
-            ),
+            style: Theme.of(context).textTheme.labelLarge?.copyWith(
+                  color: Colors.white.withOpacity(enabled ? 1 : 0.8),
+                ),
           ),
         ),
       ),

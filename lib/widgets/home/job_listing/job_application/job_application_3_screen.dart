@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/model/job.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/model_data/job_model_data.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/model_data/user_model_data.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/dynamic_text_field.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/search_add_item_chip.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/text_field.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/item/file_item.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/item/group_header.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/navigation/top_bar.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../theme/icons.dart';
@@ -28,6 +31,7 @@ class _JobApplicationSheet3State extends State<JobApplicationSheet3> {
   final _fullNameTextController = TextEditingController();
   final _emailTextController = TextEditingController();
   final _mobileNumberTextController = TextEditingController();
+  final _additionalSkillsTextController = TextEditingController();
 
   bool _isContactInfoEditing = false;
   bool _isEmploymentInfoEditing = false;
@@ -75,9 +79,14 @@ class _JobApplicationSheet3State extends State<JobApplicationSheet3> {
   // -- UI --
   @override
   Widget build(BuildContext context) {
-    final topInset = MediaQuery.of(context).padding.top;
+    final bottomInset = MediaQuery.of(context).padding.bottom;
+    final jobModelData = Provider.of<JobModelData>(context);
 
     return Scaffold(
+      appBar: TopBar(
+        dimissIcon: AppIcons.chevronLeft,
+        onTapBack: () => _onTapBack(context),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Container(
         padding: const EdgeInsets.symmetric(horizontal: 18),
@@ -91,35 +100,21 @@ class _JobApplicationSheet3State extends State<JobApplicationSheet3> {
       ),
       body: Container(
         color: Theme.of(context).colorScheme.background,
-        padding: EdgeInsets.only(top: topInset, left: 18, right: 18),
+        margin: EdgeInsets.only(bottom: 58 + bottomInset),
         child: SingleChildScrollView(
+          padding: const EdgeInsets.only(left: 18, right: 18),
           child: Column(
             children: [
+              const SizedBox(height: 8),
               Container(
                 alignment: AlignmentDirectional.topStart,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Material(
-                      child: InkWell(
-                        onTap: () => _onTapBack(context),
-                        child: MyIcon(
-                          icon: AppIcons.chevronLeft,
-                          color: Theme.of(context).primaryColor,
-                          length: 26,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      'Apply to ${widget.job.companyName}',
-                      style: Theme.of(context).textTheme.headlineLarge,
-                    ),
-                  ],
+                child: Text(
+                  'Apply to ${widget.job.companyName}',
+                  style: Theme.of(context).textTheme.headlineLarge,
                 ),
               ),
               const SizedBox(height: 18),
-              const StepIndicator(step: JobApplicationSteps.employmentInfo),
+              const StepIndicator(step: JobApplicationSteps.reviewInfo),
               const SizedBox(height: 24),
               GroupHeader(
                 title: 'Contact Info',
@@ -178,6 +173,18 @@ class _JobApplicationSheet3State extends State<JobApplicationSheet3> {
                   fileDocument: userModelData!.selectedCoverLetter!,
                   isEditing: _isEmploymentInfoEditing,
                 ),
+              const SizedBox(height: 10),
+              SearchAddItem(
+                title: 'Additional Skills',
+                props: MyTextFieldProps(
+                  placeholder: 'Add Skill',
+                  controller: _additionalSkillsTextController,
+                ),
+                isEditing: false,
+                skills: jobModelData.skills,
+                onTapRemove: (skill) => {}, // jobModelData.removeSkill(skill),
+              ),
+              const SizedBox(height: 100),
             ],
           ),
         ),

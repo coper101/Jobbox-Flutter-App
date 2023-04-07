@@ -15,16 +15,17 @@ class CircleImageButon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      splashColor: Colors.black.withOpacity(0.05),
+      splashColor: Colors.transparent,
       customBorder: const CircleBorder(),
       onTap: onTap,
       child: Ink(
-        width: 84,
-        height: 84,
+        width: 92,
+        height: 92,
         decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Colors.transparent,
-            border: Border.all()),
+          shape: BoxShape.circle,
+          color: Colors.transparent,
+          border: Border.all(),
+        ),
         child: Container(
           padding: const EdgeInsets.all(10),
           alignment: Alignment.center,
@@ -33,8 +34,9 @@ class CircleImageButon extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 15,
-              color: Theme.of(context).colorScheme.primary,
+              color: Theme.of(context).colorScheme.onBackground,
               fontWeight: FontWeight.w400,
+              height: 0,
             ),
           ),
         ),

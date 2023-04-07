@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/theme/types.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/home/job_listing/filter_tab_bar.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/navigation/filter_tab_bar.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/item/job_list_item.dart';
 import 'package:provider/provider.dart';
 

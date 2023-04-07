@@ -1,9 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/model/job.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/model_data/job_model_data.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/model_data/user_model_data.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/home/job_listing/job_application/job_application_3_screen.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/search_add_item_chip.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/switch.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/text_field.dart';
+import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/navigation/top_bar.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../theme/icons.dart';
@@ -31,7 +35,7 @@ class _JobApplicationSheet2State extends State<JobApplicationSheet2> {
   final _courseOfStudyTextController = TextEditingController();
   final _yearGraduatedTextController = TextEditingController();
 
-  final _additionalSkills = TextEditingController();
+  final _additionalSkillsTextController = TextEditingController();
 
   // -- Actions --
   void _onTapBack(BuildContext context) {
@@ -101,7 +105,8 @@ class _JobApplicationSheet2State extends State<JobApplicationSheet2> {
 
   @override
   Widget build(BuildContext context) {
-    final topInset = MediaQuery.of(context).padding.top;
+    final bottomInset = MediaQuery.of(context).padding.bottom;
+    final jobModelData = Provider.of<JobModelData>(context);
 
     return Scaffold(
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -115,24 +120,19 @@ class _JobApplicationSheet2State extends State<JobApplicationSheet2> {
           onTap: () => _onTapProceed(context),
         ),
       ),
+      appBar: TopBar(
+        dimissIcon: AppIcons.chevronLeft,
+        onTapBack: () => _onTapBack(context),
+      ),
       body: Container(
         color: Theme.of(context).colorScheme.background,
-        padding: EdgeInsets.only(top: topInset, left: 18, right: 18),
+        margin: EdgeInsets.only(bottom: 58 + bottomInset),
         child: SingleChildScrollView(
+          padding: const EdgeInsets.only(left: 18, right: 18),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Material(
-                child: InkWell(
-                  onTap: () => _onTapBack(context),
-                  child: MyIcon(
-                    icon: AppIcons.chevronLeft,
-                    color: Theme.of(context).primaryColor,
-                    length: 26,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 8),
               Text(
                 'Apply to ${widget.job.companyName}',
                 style: Theme.of(context).textTheme.headlineLarge,
@@ -192,27 +192,21 @@ class _JobApplicationSheet2State extends State<JobApplicationSheet2> {
                 null,
                 Column(
                   children: [
-                    const SizedBox(height: 2),
-                    MyTextField(
+                    const SizedBox(height: 6),
+                    SearchAddItem(
                       props: MyTextFieldProps(
-                        placeholder: 'Start searching for jobs',
-                        isOutlined: true,
-                        prefixIcon: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 11),
-                          child: MyIcon(
-                            icon: AppIcons.magnifyingGlass,
-                            length: 10,
-                            color:
-                                Theme.of(context).colorScheme.onSurfaceVariant,
-                          ),
-                        ),
-                        controller: _additionalSkills,
+                        placeholder: 'Add Skill',
+                        controller: _additionalSkillsTextController,
                       ),
+                      isEditing: true,
+                      skills: jobModelData.skills,
+                      onTapRemove: (skill) =>
+                          {}, // jobModelData.removeSkill(skill),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 100),
             ],
           ),
         ),

@@ -43,10 +43,11 @@ class StepIndicator extends StatelessWidget {
       children: [
         Text(
           step.title,
-          style: Theme.of(context)
-              .textTheme
-              .labelSmall
-              ?.copyWith(fontWeight: FontWeight.w400, fontSize: 15),
+          style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                fontWeight: FontWeight.w400,
+                fontSize: 15,
+                letterSpacing: 0.2,
+              ),
         ),
         const SizedBox(height: 8),
         Stack(

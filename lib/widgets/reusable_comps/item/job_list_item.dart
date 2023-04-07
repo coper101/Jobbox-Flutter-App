@@ -33,9 +33,7 @@ class JobListItem extends StatelessWidget {
           topRight: Radius.circular(28),
         ),
       ),
-      builder: (builder) {
-        return JobDetailSheet(job: job);
-      },
+      builder: (_) => JobDetailSheet(job: job),
     );
   }
 
@@ -92,7 +90,7 @@ class JobListItem extends StatelessWidget {
                           style: Theme.of(context)
                               .textTheme
                               .labelMedium
-                              ?.copyWith(fontSize: 14),
+                              ?.copyWith(fontSize: 14, letterSpacing: -0.8),
                         ),
                       ],
                     ),

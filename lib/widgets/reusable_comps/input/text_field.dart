@@ -50,18 +50,29 @@ class _MyTextFieldState extends State<MyTextField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         if (widget.props.title != null)
-          Text(
-            widget.props.title!,
-            textAlign: TextAlign.start,
-            style: const TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-            ),
+          Column(
+            children: [
+              Text(
+                widget.props.title!,
+                textAlign: TextAlign.start,
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const SizedBox(height: 12),
+            ],
           ),
-        const SizedBox(height: 12),
         TextField(
           enabled: widget.props.enabled,
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            color: Theme.of(context)
+                .colorScheme
+                .onBackground
+                .withOpacity(widget.props.enabled ? 1 : 0.3),
+          ),
           decoration: InputDecoration(
             label: Padding(
               padding: const EdgeInsets.only(top: 3),
@@ -69,7 +80,7 @@ class _MyTextFieldState extends State<MyTextField> {
                 widget.props.placeholder,
               ),
             ),
-            fillColor: Colors.white.withOpacity(widget.props.enabled ? 1 : 0.3),
+            fillColor: Colors.white.withOpacity(widget.props.enabled ? 1 : 0.2),
             filled: !widget.props.isOutlined,
             floatingLabelBehavior: FloatingLabelBehavior.never,
             isDense: true,
@@ -91,6 +102,14 @@ class _MyTextFieldState extends State<MyTextField> {
             border: OutlineInputBorder(
               borderSide: widget.props.isOutlined
                   ? const BorderSide()
+                  : BorderSide.none,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            disabledBorder: OutlineInputBorder(
+              borderSide: widget.props.isOutlined
+                  ? BorderSide(
+                      width: 1,
+                      color: Theme.of(context).colorScheme.onBackground)
                   : BorderSide.none,
               borderRadius: BorderRadius.circular(10),
             ),

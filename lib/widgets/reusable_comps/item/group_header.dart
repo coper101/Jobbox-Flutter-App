@@ -5,9 +5,15 @@ import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/visual/ico
 class GroupHeader extends StatelessWidget {
   // -- Props --
   final String title;
+  final double editIconLength;
 
   final VoidCallback onTapEdit;
-  const GroupHeader({super.key, required this.title, required this.onTapEdit});
+  const GroupHeader({
+    super.key,
+    required this.title,
+    this.editIconLength = 38,
+    required this.onTapEdit,
+  });
 
   // -- UI --
   @override
@@ -22,17 +28,24 @@ class GroupHeader extends StatelessWidget {
             title,
             style: Theme.of(context).textTheme.titleMedium,
           ),
-          InkWell(
-            onTap: onTapEdit,
-            splashColor: Colors.black.withOpacity(0.1),
-            child: Ink(
-              color: Colors.transparent,
-              width: 22,
-              height: 22,
-              child: MyIcon(
-                icon: AppIcons.pen,
-                length: 20,
-                color: Theme.of(context).colorScheme.onBackground,
+          Material(
+            child: InkWell(
+              borderRadius: BorderRadius.circular(10),
+              splashColor: Colors.transparent,
+              onTap: onTapEdit,
+              child: Ink(
+                padding: const EdgeInsets.all(8),
+                width: editIconLength,
+                height: editIconLength,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.transparent,
+                ),
+                child: MyIcon(
+                  icon: AppIcons.pen,
+                  length: editIconLength,
+                  color: Theme.of(context).colorScheme.onBackground,
+                ),
               ),
             ),
           )

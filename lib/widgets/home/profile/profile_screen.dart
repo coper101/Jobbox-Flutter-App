@@ -10,8 +10,6 @@ import '../../reusable_comps/input/dynamic_text_field.dart';
 import '../../../widgets/reusable_comps/item/file_item.dart';
 import '../../../widgets/reusable_comps/input/text_field.dart';
 
-import '../../../model/file_document.dart';
-
 class ProfileScreen extends StatefulWidget {
   // -- Props --
   const ProfileScreen({super.key});

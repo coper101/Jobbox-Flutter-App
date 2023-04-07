@@ -39,6 +39,7 @@ class _FilterTabBarState extends State<FilterTabBar> {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
+          splashColor: Colors.transparent,
           onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 12),
@@ -58,16 +59,18 @@ class _FilterTabBarState extends State<FilterTabBar> {
                   ),
                 ),
                 const SizedBox(height: 6),
-                if (isActive)
-                  Container(
-                    width: 102,
-                    height: 4.5,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.secondary,
-                      borderRadius: BorderRadius.circular(50),
-                    ),
-                    // color: Theme.of(context).colorScheme.secondary,
+                Container(
+                  width: 102,
+                  height: 4.5,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context)
+                        .colorScheme
+                        .secondary
+                        .withOpacity(isActive ? 1 : 0),
+                    borderRadius: BorderRadius.circular(50),
                   ),
+                  // color: Theme.of(context).colorScheme.secondary,
+                ),
                 const SizedBox(height: 8),
               ],
             ),
