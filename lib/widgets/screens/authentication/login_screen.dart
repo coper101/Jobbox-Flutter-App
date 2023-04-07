@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/model_data/data.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/model_data/user_model_data.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/types.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/screens/authentication/sign_up_screen.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/text_field.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter/services.dart';
 
+import '../../../theme/types.dart';
+
+import '../../../widgets/screens/authentication/sign_up_screen.dart';
+import '../../../widgets/reusable_comps/input/text_field.dart';
 import '../../reusable_comps/input/filled_button.dart';
+
+import '../../../model_data/data.dart';
+import '../../../model_data/user_model_data.dart';
 
 class LoginScreen extends StatefulWidget {
   // -- Props --

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/colors.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/icons.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/types.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/navigation/top_bar.dart';
 import 'package:provider/provider.dart';
+
+import '../../../theme/colors.dart';
+import '../../../theme/icons.dart';
+
+import '../../../widgets/reusable_comps/navigation/top_bar.dart';
 
 import '../../reusable_comps/input/filled_button.dart';
 import '../../reusable_comps/input/text_field.dart';
 import '../../reusable_comps/input/circle_image_button.dart';
+
 import '../../../model_data/user_model_data.dart';
 import '../../../model_data/data.dart';
 

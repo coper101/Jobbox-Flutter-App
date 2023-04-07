@@ -1,5 +1,5 @@
 // -- Salary --
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/icons.dart';
+import '../theme/icons.dart';
 
 enum SalaryType { month, year }
 

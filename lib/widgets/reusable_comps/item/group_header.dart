@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/icons.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/visual/icon_image.dart';
+
+import '../../../theme/icons.dart';
+
+import '../visual/icon_image.dart';
 
 class GroupHeader extends StatelessWidget {
   // -- Props --

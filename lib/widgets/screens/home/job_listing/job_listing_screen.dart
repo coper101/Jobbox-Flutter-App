@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/types.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/navigation/filter_tab_bar.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/item/job_list_item.dart';
 import 'package:provider/provider.dart';
 
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/icons.dart';
+import '../../../../theme/types.dart';
+import '../../../../theme/icons.dart';
 
 import '../../../reusable_comps/visual/icon_image.dart';
 import '../../../reusable_comps/input/text_field.dart';
+import '../../../reusable_comps/navigation/filter_tab_bar.dart';
+import '../../../reusable_comps/item/job_list_item.dart';
 
 import '../../../../model_data/job_model_data.dart';
 import '../../../../model_data/user_model_data.dart';

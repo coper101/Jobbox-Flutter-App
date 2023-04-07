@@ -1,21 +1,19 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/model/job.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/model_data/job_model_data.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/model_data/user_model_data.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/dimensions.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/screens/home/job_listing/job_application/job_application_3_screen.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/search_add_item_chip.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/switch.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/text_field.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/navigation/top_bar.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../../theme/dimensions.dart';
 import '../../../../../theme/icons.dart';
 
+import '../../../../screens/home/job_listing/job_application/job_application_3_screen.dart';
+import '../../../../reusable_comps/input/search_add_item_chip.dart';
+import '../../../../reusable_comps/input/switch.dart';
+import '../../../../reusable_comps/input/text_field.dart';
+import '../../../../reusable_comps/navigation/top_bar.dart';
 import '../../../../reusable_comps/input/filled_button.dart';
-import '../../../../reusable_comps/visual/icon_image.dart';
 import '../../../../reusable_comps/visual/step_indicator.dart';
+
+import '../../../../../model/job.dart';
+import '../../../../../model_data/job_model_data.dart';
 
 class JobApplicationSheet2 extends StatefulWidget {
   // -- Props --

@@ -1,10 +1,9 @@
-import 'package:jobbox_app_daryl_sofia_gialolo/model/skill.dart';
-
 import '../theme/icons.dart';
 
-import '../../model/user.dart';
-import '../../model/job.dart';
+import '../model/user.dart';
+import '../model/job.dart';
 import '../model/file_document.dart';
+import '../model/skill.dart';
 
 // -- Dummy User --
 class Users {

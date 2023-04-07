@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/model/job.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/model_data/job_model_data.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/model_data/user_model_data.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/dimensions.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/dynamic_text_field.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/search_add_item_chip.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/text_field.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/item/file_item.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/item/group_header.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/navigation/top_bar.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../theme/icons.dart';
+import '../../../../../theme/dimensions.dart';
 
 import '../../../../reusable_comps/input/filled_button.dart';
-import '../../../../reusable_comps/visual/icon_image.dart';
 import '../../../../reusable_comps/visual/step_indicator.dart';
+import '../../../../reusable_comps/input/dynamic_text_field.dart';
+import '../../../../reusable_comps/input/search_add_item_chip.dart';
+import '../../../../reusable_comps/input/text_field.dart';
+import '../../../../reusable_comps/item/file_item.dart';
+import '../../../../reusable_comps/item/group_header.dart';
+import '../../../../reusable_comps/navigation/top_bar.dart';
+
+import '../../../../../model/job.dart';
+import '../../../../../model_data/job_model_data.dart';
+import '../../../../../model_data/user_model_data.dart';
 
 class JobApplicationSheet3 extends StatefulWidget {
   // -- Props --

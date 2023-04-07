@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../../theme/icons.dart';
 
-import '../../../widgets/reusable_comps/visual/icon_image.dart';
-import '../../../widgets/reusable_comps/input/text_field.dart';
+import '../visual/icon_image.dart';
+import '../input/text_field.dart';
 
 import '../../../model/skill.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'text_field.dart';
+import './text_field.dart';
 
 class DynamicTextField extends StatelessWidget {
   // -- Props --

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/model/file_document.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/model_data/user_model_data.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/dimensions.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/file_item_button.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/navigation/top_bar.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../../theme/icons.dart';
+import '../../../../../theme/dimensions.dart';
 
+import '../../../home/job_listing/job_application/job_application_2_screen.dart';
 import '../../../../reusable_comps/input/filled_button.dart';
 import '../../../../reusable_comps/visual/icon_image.dart';
 import '../../../../reusable_comps/visual/step_indicator.dart';
-import '../../../home/job_listing/job_application/job_application_2_screen.dart';
+import '../../../../reusable_comps/input/file_item_button.dart';
+import '../../../../reusable_comps/navigation/top_bar.dart';
 
 import '../../../../../model/job.dart';
+import '../../../../../model/file_document.dart';
+import '../../../../../model_data/user_model_data.dart';
 
 class JobApplicationSheet1 extends StatelessWidget {
   // -- Props --

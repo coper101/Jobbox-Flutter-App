@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/model_data/user_model_data.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/icons.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/item/job_list_item.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/visual/icon_image.dart';
 import 'package:provider/provider.dart';
+
+import '../../../../theme/icons.dart';
+
+import '../../../../widgets/reusable_comps/item/job_list_item.dart';
+import '../../../../widgets/reusable_comps/visual/icon_image.dart';
+
+import '../../../../model_data/user_model_data.dart';
 
 class AppliedJobsScreen extends StatelessWidget {
   const AppliedJobsScreen({super.key});

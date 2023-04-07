@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/model_data/user_model_data.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/dimensions.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../theme/colors.dart';
 import '../../../../theme/icons.dart';
+import '../../../../theme/dimensions.dart';
 
-import 'job_application/job_application_1_screen.dart';
+import './job_application/job_application_1_screen.dart';
 import '../../../reusable_comps/input/filled_button.dart';
 import '../../../reusable_comps/input/icon_box_button.dart';
 import '../../../reusable_comps/visual/logo_image.dart';
 
 import '../../../../model/job.dart';
+
+import '../../../../model_data/user_model_data.dart';
 
 class JobDetailSheet extends StatelessWidget {
   // -- Props --

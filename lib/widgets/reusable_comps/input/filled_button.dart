@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jobbox_app_daryl_sofia_gialolo/theme/colors.dart';
 
 class MyFilledButton extends StatelessWidget {
   // -- Props --

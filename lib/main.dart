@@ -5,8 +5,8 @@ import 'package:provider/provider.dart';
 import './theme/colors.dart';
 import './theme/types.dart';
 
-import 'widgets/screens/home/home.dart';
-import 'widgets/screens/authentication/sign_up_screen.dart';
+import './widgets/screens/home/home.dart';
+import './widgets/screens/authentication/sign_up_screen.dart';
 
 import './model_data/user_model_data.dart';
 import './model_data/job_model_data.dart';

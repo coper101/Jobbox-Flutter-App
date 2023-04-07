@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../input/filled_button.dart';
-
 enum JobApplicationSteps { uploadDocs, employmentInfo, reviewInfo }
 
 extension JobApplicationStepsExtension on JobApplicationSteps {
