@@ -13,6 +13,14 @@ class JobModelData with ChangeNotifier {
     return [..._jobs];
   }
 
+  List<Job> get recentJobs {
+    return [..._jobs];
+  }
+
+  List<Job> get nearbyJobs {
+    return _jobs.where((job) => job.isNearby).toList();
+  }
+
   List<Skill> get skills {
     return [..._skills];
   }

@@ -51,6 +51,7 @@ class Job {
   final DateTime datePosted;
   final Salary salary;
   final Country country;
+  final bool isNearby;
 
   Job({
     required this.id,
@@ -62,6 +63,7 @@ class Job {
     required this.datePosted,
     required this.salary,
     required this.country,
+    required this.isNearby,
   });
 
   String get salaryDescription {

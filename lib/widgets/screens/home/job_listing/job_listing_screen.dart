@@ -23,6 +23,14 @@ class JobListingScreen extends StatefulWidget {
 class _JobListingScreenState extends State<JobListingScreen> {
   // -- States --
   final _searchEditingController = TextEditingController();
+  TabFilters _activeFilterTab = TabFilters.recent;
+
+  // -- Actions --
+  void onChangedFilter(TabFilters filter) {
+    setState(() {
+      _activeFilterTab = filter;
+    });
+  }
 
   // -- UI --
   Widget _topBar(BuildContext context, String message) {
@@ -76,19 +84,21 @@ class _JobListingScreenState extends State<JobListingScreen> {
   Widget build(BuildContext context) {
     final userModelData = Provider.of<UserModelData>(context);
     final jobModelData = Provider.of<JobModelData>(context);
+    final jobs = (_activeFilterTab == TabFilters.nearby)
+        ? jobModelData.nearbyJobs
+        : jobModelData.recentJobs;
 
     return Container(
       color: Theme.of(context).colorScheme.background,
       child: Column(
         children: [
           _topBar(context, userModelData.greeting),
-          const FilterTabBar(),
+          FilterTabBar(onChangedTab: onChangedFilter),
           Flexible(
             child: ListView.builder(
               padding: const EdgeInsets.symmetric(vertical: 0),
-              itemBuilder: (_, index) =>
-                  JobListItem(job: jobModelData.jobs[index]),
-              itemCount: jobModelData.jobs.length,
+              itemBuilder: (_, index) => JobListItem(job: jobs[index]),
+              itemCount: jobs.length,
             ),
           ),
         ],

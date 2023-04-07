@@ -15,7 +15,9 @@ extension TabBarFiltersExtension on TabFilters {
 
 class FilterTabBar extends StatefulWidget {
   // -- States --
-  const FilterTabBar({super.key});
+  final Function(TabFilters) onChangedTab;
+
+  const FilterTabBar({super.key, required this.onChangedTab});
 
   @override
   State<FilterTabBar> createState() => _FilterTabBarState();
@@ -29,6 +31,7 @@ class _FilterTabBarState extends State<FilterTabBar> {
   void _toggleTab(TabFilters filter) {
     setState(() {
       _activeFilter = filter;
+      widget.onChangedTab(_activeFilter);
     });
   }
 

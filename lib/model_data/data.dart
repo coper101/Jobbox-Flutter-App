@@ -45,6 +45,7 @@ class Jobs {
         maximum: 8000,
       ),
       country: const Country(name: 'Singapore', direction: Directions.east),
+      isNearby: false,
     ),
     Job(
       id: 'j2',
@@ -67,6 +68,7 @@ class Jobs {
         maximum: 6000,
       ),
       country: const Country(name: 'Singapore', direction: Directions.central),
+      isNearby: true,
     ),
     Job(
       id: 'j3',
@@ -89,6 +91,7 @@ class Jobs {
         maximum: 10000,
       ),
       country: const Country(name: 'Singapore', direction: Directions.west),
+      isNearby: false,
     ),
     Job(
       id: 'j4',
@@ -112,6 +115,7 @@ class Jobs {
       ),
       country:
           const Country(name: 'Singapore', direction: Directions.northEast),
+      isNearby: false,
     ),
     Job(
       id: 'j5',
@@ -134,6 +138,7 @@ class Jobs {
         maximum: 10000,
       ),
       country: const Country(name: 'Singapore', direction: Directions.central),
+      isNearby: true,
     )
   ];
 }
