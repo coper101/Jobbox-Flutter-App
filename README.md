@@ -19,6 +19,13 @@ Figma: https://www.figma.com/file/pEo43VAlgP6Duu99CC9fID/Jobbox?node-id=0%3A1&t=
 
 ## App Screenshots
 
+### iOS
+<img width="1000" src="https://user-images.githubusercontent.com/51541224/230597197-7fbbb108-f2b9-4695-9c4f-05d9c920d12a.png">
+<img width="780" src="https://user-images.githubusercontent.com/51541224/230597301-23cc261f-a3d3-4b4c-8049-b474fc31e06f.png">
+
+### Android
+<img width="1000" src="https://user-images.githubusercontent.com/51541224/230598029-98a5f51e-a966-4228-ad21-a4f622f8c7ca.png">
+<img width="780" src="https://user-images.githubusercontent.com/51541224/230598038-c64691f8-7fda-4d5a-9a50-3b6e4c44f5cc.png">
 
 ## User Guide
 
