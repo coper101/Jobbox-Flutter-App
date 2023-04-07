@@ -34,7 +34,7 @@ class SearchAddItem extends StatelessWidget {
     return Material(
       child: InkWell(
         borderRadius: BorderRadius.circular(10),
-        highlightColor: Colors.white.withOpacity(0.2),
+        highlightColor: Colors.white.withOpacity(0.1),
         splashColor: Colors.transparent,
         onTap: () => onTapRemove(skill),
         child: Padding(

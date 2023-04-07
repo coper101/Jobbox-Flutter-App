@@ -6,14 +6,14 @@ import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/input/file
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/navigation/top_bar.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../theme/icons.dart';
+import '../../../../../theme/icons.dart';
 
-import '../../../reusable_comps/input/filled_button.dart';
-import '../../../reusable_comps/visual/icon_image.dart';
-import '../../../reusable_comps/visual/step_indicator.dart';
+import '../../../../reusable_comps/input/filled_button.dart';
+import '../../../../reusable_comps/visual/icon_image.dart';
+import '../../../../reusable_comps/visual/step_indicator.dart';
 import '../../../home/job_listing/job_application/job_application_2_screen.dart';
 
-import '../../../../model/job.dart';
+import '../../../../../model/job.dart';
 
 class JobApplicationSheet1 extends StatelessWidget {
   // -- Props --

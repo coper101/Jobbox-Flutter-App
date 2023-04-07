@@ -21,8 +21,9 @@ class MyFilledButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       splashColor: Colors.transparent,
-      highlightColor:
-          enabled ? Colors.white.withOpacity(0.2) : Colors.transparent,
+      highlightColor: enabled
+          ? Theme.of(context).colorScheme.primary.withOpacity(0.1)
+          : Colors.transparent,
       borderRadius: _borderRadius,
       onTap: () => {
         if (enabled) {onTap()}

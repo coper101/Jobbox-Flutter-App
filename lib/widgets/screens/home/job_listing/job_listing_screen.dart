@@ -6,11 +6,11 @@ import 'package:provider/provider.dart';
 
 import 'package:jobbox_app_daryl_sofia_gialolo/theme/icons.dart';
 
-import '../../reusable_comps/visual/icon_image.dart';
-import '../../reusable_comps/input/text_field.dart';
+import '../../../reusable_comps/visual/icon_image.dart';
+import '../../../reusable_comps/input/text_field.dart';
 
-import '../../../model_data/job_model_data.dart';
-import '../../../model_data/user_model_data.dart';
+import '../../../../model_data/job_model_data.dart';
+import '../../../../model_data/user_model_data.dart';
 
 class JobListingScreen extends StatefulWidget {
   // -- Props --

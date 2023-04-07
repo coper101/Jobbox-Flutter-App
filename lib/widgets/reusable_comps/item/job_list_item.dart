@@ -3,7 +3,7 @@ import 'package:intl/intl.dart';
 
 import '../../../theme/icons.dart';
 
-import '../../home/job_listing/job_detail_sheet.dart';
+import '../../screens/home/job_listing/job_detail_sheet.dart';
 import '../visual/icon_image.dart';
 
 import '../../../model/job.dart';
@@ -70,7 +70,9 @@ class JobListItem extends StatelessWidget {
             ),
             child: InkWell(
               borderRadius: BorderRadius.circular(10),
-              splashColor: Colors.black.withOpacity(0.1),
+              splashColor: Colors.transparent,
+              highlightColor:
+                  Theme.of(context).colorScheme.primary.withOpacity(0.05),
               onTap: () => onTapItem(context),
               child: Container(
                 padding: const EdgeInsets.only(

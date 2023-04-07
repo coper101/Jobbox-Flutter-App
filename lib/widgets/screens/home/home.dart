@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../theme/icons.dart';
+import '../../../theme/icons.dart';
 
-import '../../widgets/authentication/login_screen.dart';
+import '../authentication/login_screen.dart';
 import './job_listing/job_listing_screen.dart';
 import './applied_jobs/applied_jobs_screen.dart';
 import './profile/profile_screen.dart';
-import '../reusable_comps/visual/icon_image.dart';
+import '../../reusable_comps/visual/icon_image.dart';
 
-import '../../model_data/user_model_data.dart';
+import '../../../model_data/user_model_data.dart';
 
 enum TabScreens { jobListing, appliedJobs, profile }
 
@@ -65,9 +65,10 @@ class _HomeState extends State<Home> {
         padding: const EdgeInsets.only(bottom: 4),
         child: MyIcon(
           icon: icon,
+          length: 24,
           color: (_selectedTabScreen == screen)
               ? colorScheme.secondary
-              : colorScheme.primary.withOpacity(0.35),
+              : colorScheme.onBackground.withOpacity(0.4),
         ),
       ),
     );

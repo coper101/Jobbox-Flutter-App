@@ -40,9 +40,11 @@ class _FilterTabBarState extends State<FilterTabBar> {
         color: Colors.transparent,
         child: InkWell(
           splashColor: Colors.transparent,
+          highlightColor:
+              Theme.of(context).colorScheme.primary.withOpacity(0.1),
           onTap: onTap,
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 12),
+            padding: const EdgeInsets.only(top: 12, bottom: 10),
             child: Column(
               children: [
                 Text(

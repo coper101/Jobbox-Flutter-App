@@ -32,6 +32,8 @@ class GroupHeader extends StatelessWidget {
             child: InkWell(
               borderRadius: BorderRadius.circular(10),
               splashColor: Colors.transparent,
+              highlightColor:
+                  Theme.of(context).colorScheme.primary.withOpacity(0.1),
               onTap: onTapEdit,
               child: Ink(
                 padding: const EdgeInsets.all(8),

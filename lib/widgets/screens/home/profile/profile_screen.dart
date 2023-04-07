@@ -3,12 +3,12 @@ import 'package:jobbox_app_daryl_sofia_gialolo/model_data/user_model_data.dart';
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/item/group_header.dart';
 import 'package:provider/provider.dart';
 
-import '../../../theme/icons.dart';
+import '../../../../theme/icons.dart';
 
-import '../../reusable_comps/visual/icon_image.dart';
-import '../../reusable_comps/input/dynamic_text_field.dart';
-import '../../../widgets/reusable_comps/item/file_item.dart';
-import '../../../widgets/reusable_comps/input/text_field.dart';
+import '../../../reusable_comps/visual/icon_image.dart';
+import '../../../reusable_comps/input/dynamic_text_field.dart';
+import '../../../reusable_comps/item/file_item.dart';
+import '../../../reusable_comps/input/text_field.dart';
 
 class ProfileScreen extends StatefulWidget {
   // -- Props --

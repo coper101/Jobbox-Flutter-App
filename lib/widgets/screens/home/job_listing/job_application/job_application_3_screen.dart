@@ -11,11 +11,11 @@ import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/item/group
 import 'package:jobbox_app_daryl_sofia_gialolo/widgets/reusable_comps/navigation/top_bar.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../theme/icons.dart';
+import '../../../../../theme/icons.dart';
 
-import '../../../reusable_comps/input/filled_button.dart';
-import '../../../reusable_comps/visual/icon_image.dart';
-import '../../../reusable_comps/visual/step_indicator.dart';
+import '../../../../reusable_comps/input/filled_button.dart';
+import '../../../../reusable_comps/visual/icon_image.dart';
+import '../../../../reusable_comps/visual/step_indicator.dart';
 
 class JobApplicationSheet3 extends StatefulWidget {
   // -- Props --
